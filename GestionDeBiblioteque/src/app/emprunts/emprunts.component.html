@@ -1,0 +1,44 @@
+<p></p>
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading" style="text-transform: uppercase; text-align: center" routerLink="/home"><h3>Gestion des Emprunts</h3></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9 register-right">
+          <ul class="nav nav-tabs nav-justified" role="tablist">
+            <li class="nav-item">
+              <a class="btn btn-block" style="color: black"><strong>Emprunts un Livres</strong></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <p></p>
+      <p></p>
+      <div></div>
+      <div class="container">
+        <form class="form-group">
+          <div class="form-group col-xs-4">
+            <label><strong>Date d'Emprunt:</strong></label>
+            <input type="date" class="form-control" placeholder="" name="dat1" [(ngModel)]="dat1">
+            <label><strong>Date Retour:</strong></label>
+            <input type="date" class="form-control"  placeholder="" name="dat2" [(ngModel)]="dat2"><br>
+              <label><strong>Selectioné un Livre:</strong></label>&nbsp;&nbsp;&nbsp;
+                <select [(ngModel)]="lists" name="list_idLivres">
+                  <option *ngFor="let e of lists">
+                    {{e.nomLivre}}
+                  </option>
+                </select><br><br>
+            <label><strong>Selectioné un User:</strong></label>&nbsp;
+            <select [(ngModel)]="listsU" name="list_idUsages">
+              <option *ngFor="let u of listsU">
+                {{u.nomUsages}}
+              </option>
+            </select><br>
+            <button type="submit" class="btn btn-success" (click)="ajouterEmprunt()">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+

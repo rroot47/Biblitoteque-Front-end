@@ -1,0 +1,26 @@
+<p></p>
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading" style="text-align: center" routerLink="/home"><h2>Modifier un Livre</h2></div>
+    <div class="container">
+      <p></p>
+      <p></p>
+      <div class="container">
+        <form class="form-group">
+          <div class="form-group col-xs-4">
+            <label><strong>ID:</strong></label>
+            <input type="text" class="form-control" placeholder="ID" name="idLivre" [(ngModel)]="idLivre">
+            <label><strong>Nom du Livre:</strong></label>
+            <input type="text" class="form-control" placeholder="Nom du Livre" name="nomLivre" [(ngModel)]="donneLivre.nomLivre">
+            <label><strong>Auteur du Livre:</strong></label>
+            <input type="text" class="form-control"  placeholder="Auteur du Livre" name="auteurLivre" [(ngModel)]="donneLivre.auteurLivre">
+            <label><strong>Nombre des Livres:</strong></label>
+            <input type="text" class="form-control"  placeholder="Nombre total des Livres" name="ttLivre" [(ngModel)]="donneLivre.ttLivre" required=""><p></p>
+            <button type="submit" class="btn btn-success" (click)="upLivre()">Update</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>

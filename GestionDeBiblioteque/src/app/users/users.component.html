@@ -1,0 +1,46 @@
+<p></p>
+<p></p>
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading" style="text-transform: uppercase; text-align: center" routerLink="/home"><h3>Gestion des utilisateurs</h3></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9 register-right">
+          <ul class="nav nav-tabs nav-justified" role="tablist">
+            <li class="nav-item">
+              <a class="btn btn-group-sm" >Ajoute un Utilisateur</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <p></p>
+      <p></p>
+      <div></div>
+      <div class="container">
+        <form class="form-group">
+          <div class="form-group col-xs-4">
+            <label><strong>Nom Utilisateur:</strong></label>
+            <input type="text" class="form-control" placeholder="Nom user" name="nomUsage" [(ngModel)]="nomUsages">
+            <label><strong>Auteur du Livre:</strong></label>
+            <input type="text" class="form-control"  placeholder="Prenom user" name="preUsage" [(ngModel)]="prenomUsages"><p></p>
+            <button type="submit" class="btn btn-success" (click)="ajoutUser()">Register</button>
+          </div>
+        </form>
+      </div>
+      <strong><b><h2>Listes des Utilisateur</h2></b></strong>
+      <table class="table table-striped">
+        <tr>
+          <th>ID</th><th>Nom</th><th>Prenom</th>
+        </tr>
+        <tr *ngFor="let c of lists">
+          <td>{{c.idUsages}}</td>
+          <td>{{c.nomUsages}}</td>
+          <td>{{c.prenomUsages}}</td>
+          <td><button type="submit" class="btn btn-success btn-sm" (click)="modifierUser(c.idUsages)">Update</button></td>
+          <td><button type="submit" class="btn btn-danger btn-sm" (click)="supprimerUser(c.idUsages)">Delete</button></td>
+        <tr>
+      </table>
+    </div>
+  </div>
+</div>
+

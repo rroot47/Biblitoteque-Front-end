@@ -1,0 +1,90 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" routerLink="/home">Gestion Biblioteque</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a routerLink="/home" class="btn btn-primary">Home</a></li>
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" disabled="">Gestion
+          <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <!--<li><a routerLink="/livres">Gestion des Livres</a></li>-->
+          <li><a routerLink="/gestionemprunts">Gestion des Emprunts</a></li>
+          <li><a routerLink="/exemplairelivres">Exemplaire Livres</a></li>
+          <li><a routerLink="/usergestion">Gestion des Utilisateurs</a></li>
+        </ul>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav pull-right">
+      <li>
+        <a href="#">Login</a>
+      </li>
+    </ul>
+  </div>
+</nav><br><br><br>
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading" style="text-transform: uppercase; text-align: center"><h3>Bienvenu dans Notre Biblioteque</h3></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9 register-right">
+          <ul class="nav nav-tabs nav-justified" role="tablist">
+            <li class="nav-item">
+              <a class="btn btn-block"><strong>Ajoute un Livre</strong></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <p></p>
+      <p></p>
+      <div></div>
+      <div class="container">
+        <form #f="ngForm" (ngSubmit)="ajouteLivre(f.value)" class="form-group">
+          <div class="form-group col-xs-4">
+            <label><strong>Nom du Livre:</strong></label>
+            <input type="text" class="form-control" placeholder="Nom du Livre" name="nomLivre" [(ngModel)]="nomLivre" required="">
+            <label><strong>Auteur du Livre:</strong></label>
+            <input type="text" class="form-control"  placeholder="Auteur du Livre" name="auteurLivre" [(ngModel)]="auteurLivre" required="">
+            <label><strong>Nombre des Livres:</strong></label>
+            <input type="text" class="form-control"  placeholder="Nombre Total des Livres" name="ttLivre" [(ngModel)]="ttLivre" required=""><p></p>
+            <button [disabled]="!f.valid" type="submit" class="btn btn-success">Register</button>
+          </div>
+        </form>
+      </div>
+      <div class="row">
+        <div class="col-md-9 register-right">
+          <ul class="nav nav-tabs nav-justified" role="tablist">
+            <li class="nav-item">
+              <a class="btn btn-block"><strong>Chercher un Livre</strong></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="container">
+        <form class="form-group">
+          <div class="form-group col-xs-4">
+            <label><strong>ID:</strong></label>
+            <input type="text" class="form-control" placeholder="ID du Livres" name="idLivre" ([ngModel])="id"><p></p>
+            <button type="submit" class="btn btn-toolbar" (click)="chercherLivre()">Search</button>
+          </div>
+        </form>
+      </div>
+    </div>
+     <strong><b><h2>Listes des Livres</h2></b></strong>
+      <table class="table table-striped">
+        <tr>
+          <th>ID</th><th>Auteur du Livre</th><th>Nom du Livre</th><th>Nombre Total des Livres</th>
+        </tr>
+        <tr *ngFor="let c of lists">
+          <td>{{c.idLivre}}</td>
+          <td>{{c.auteurLivre}}</td>
+          <td>{{c.nomLivre}}</td>
+          <td>{{c.totalLivres}}</td>
+          <td><button type="submit" class="btn btn-success btn-sm" (click)="modifierLivre(c.idLivre)">Edit</button></td>
+          <td><button type="submit" class="btn btn-danger btn-sm" (click)=" supprimerLivre(c.idLivre)">Delete</button></td>
+          <tr>
+      </table>
+  </div>
+    </div>
+
